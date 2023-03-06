@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #262829 !important;
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  padding: 10px;
+}
+
+.App-link:hover {
+  color: #457e9b !important;
+}
+
+.App-Body {
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.page-title {
+  padding: 10px;
+}
+
+.signin-modal .modal-dialog {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.signin-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.page-body {
+  height: calc(100vh - 155px);
+}
+
+.report-detail {
+  margin: 30px;
+  margin-top: 100px;
+  height: 50vh;
+  background-color: #ffffff;
+  border: 1px solid #457e9b;
+}
+
+.home-body {
+  overflow: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .page-title {
+    background: #ffffff;
+  }
+}
