@@ -21,7 +21,6 @@ const Report = () => {
   }, []);
 
   const handleSession = (e) => {
-    console.log(cookie);
     axios
       .post(`${process.env.REACT_APP_TEST_API}session`, { cookie: cookie })
       .then((response) => {
@@ -48,7 +47,6 @@ const Report = () => {
 
       reader.onload = (e) => {
         let src = e.target.result.split(",")[1];
-        console.log(src);
         setImageBase64(src);
       };
     }
@@ -70,9 +68,6 @@ const Report = () => {
       jpgFILE: jpgFILE,
     };
 
-    console.log(cookie);
-    console.log(formData);
-
     await axios
       .post(`${process.env.REACT_APP_TEST_API}report`, {
         cookie: cookie,
@@ -82,8 +77,8 @@ const Report = () => {
         let data = response.data.message;
         console.log(data);
         if (response.data.success) {
-          let tempHtml = data.report_html.replace('/portal',"https://paul.blueboxonline.com/portal");
-          contentRef.current.innerHTML = tempHtml;
+          // let tempHtml = data.report_html.replace('/portal',"https://paul.blueboxonline.com/portal");
+          contentRef.current.innerHTML = data.report_html;
         }
       })
       .catch((err) => {

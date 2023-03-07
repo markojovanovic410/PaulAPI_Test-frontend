@@ -24,6 +24,7 @@ const SignIn = () => {
           setShowModal(true);
           return;
         }
+
         let data = res.data.message;
         console.log(data);
         let cookie = "";
@@ -31,6 +32,7 @@ const SignIn = () => {
           let temp = ele.split(";", undefined);
           cookie += temp[0] + "; ";
         });
+
         setCookie(cookie);
         navigate("/");
       });
@@ -44,7 +46,7 @@ const SignIn = () => {
     <>
       <h1 className="page-title"> Sign In</h1>
       <div
-        className="d-flex justify-content-center align-items-center page-body"
+        className="d-flex justify-content-center align-items-center signin-modal"
       >
         <Form onSubmit={handleLogin}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -70,7 +72,9 @@ const SignIn = () => {
         </Form>
       </div>
 
-      <Modal show={showErrModal} className="signin-modal">
+      <div style={{position:"relative"}}>
+        
+      <Modal show={showErrModal}>
         <Modal.Header closeButton>
           <Modal.Title>Err - Sign In Failed</Modal.Title>
         </Modal.Header>
@@ -86,6 +90,7 @@ const SignIn = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+      </div>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { NavDropdown, Row } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import "./header.css";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar,  Nav } from "react-bootstrap";
 import imgAvatar from "../../assets/imgs/avatar.png";
 import { useCookie } from "../../states/cookie";
 import axios from "axios";
@@ -16,7 +16,6 @@ const Header = () => {
     fetch("https://paul.blueboxonline.com/api/v1/app/settings")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setLogoUrl(data["logo"]);
       });
   }, []);

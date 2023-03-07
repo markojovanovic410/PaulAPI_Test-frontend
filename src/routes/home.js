@@ -1,5 +1,4 @@
-import Header from "../components/header/header";
-import { Container, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookie } from "../states/cookie";
@@ -7,7 +6,7 @@ import axios from "axios";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { cookie, setCookie } = useCookie();
+  const { cookie } = useCookie();
   const [tableData, setTableData] = useState([]);
   const [isLogin, setIsLogin] = useState(false);
 
@@ -26,6 +25,7 @@ const Home = () => {
       .then((response) => {
         if(response.data.success)
         {
+          console.log(response.data);
           setIsLogin(true);
           getTableData();
         }
@@ -52,8 +52,8 @@ const Home = () => {
   const getTableHeader = () => {
     let tableHead = tableData[0];
     console.log(tableHead);
-    tableHead = tableHead.map((item) => {
-      return <th>{item}</th>;
+    tableHead = tableHead.map((item,key) => {
+      return <th key={key}>{item}</th>;
     })
 
     console.log(tableHead);
@@ -62,11 +62,11 @@ const Home = () => {
 
   const getTableBody = () => {
     let data = [];
-    for(let i=0; i < tableData.length; i++)
+    for(let i=0; i < tableData?.length; i++)
     {
       let tableRow = tableData[i];
-      tableRow = tableRow.map((item) => {
-        return <td>{item}</td>;
+      tableRow = tableRow.map((item, key) => {
+        return <td key={key}>{item}</td>;
       })
       
       data = [...data, <tr>{tableRow}</tr>];
